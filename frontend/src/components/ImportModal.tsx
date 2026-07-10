@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import { Upload, X, FileText, Download, CheckCircle, Loader2 } from "lucide-react";
 import { parseCsvForPreview, CsvPreview } from "../lib/csvParser";
@@ -40,6 +40,17 @@ export function ImportModal({ isOpen, onClose, onImportComplete }: ImportModalPr
     importedRecords: any[];
     skippedRecords: any[];
   } | null>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   const onDrop = useCallback(async (accepted: File[]) => {
     setError(null);

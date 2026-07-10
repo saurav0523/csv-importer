@@ -157,7 +157,7 @@ export function ResultsTable({ imported, skipped }: ResultsTableProps) {
                     className="flex border-b border-slate-100 bg-white hover:bg-slate-50"
                   >
                     <td className="sticky left-0 z-10 flex w-12 shrink-0 items-center border-r border-slate-100 bg-inherit px-3 text-xs text-slate-500">
-                      {item.rowIndex + 1}
+                      {vRow.index + 1}
                     </td>
                     {skippedHeaders.map((h) => (
                       <td key={h} className="flex w-40 shrink-0 items-center truncate whitespace-nowrap px-4 text-slate-800 font-medium" title={String(item.row[h] || "")}>

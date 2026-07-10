@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { Upload, X, FileText, Download, CheckCircle, Loader2 } from "lucide-react";
 import { parseCsvForPreview, CsvPreview } from "../lib/csvParser";
+import Papa from "papaparse";
 import { Button } from "./ui/Button";
 import { ResultsTable } from "./ResultsTable";
 import { importCsvFile } from "../api/apiServices";
@@ -92,45 +93,71 @@ export function ImportModal({ isOpen, onClose, onImportComplete }: ImportModalPr
 
     setIsProcessing(true);
     setError(null);
-
     setCurrentStageIndex(0);
 
-    const stageInterval = setInterval(() => {
-      setCurrentStageIndex((prev) => {
-        if (prev < STAGES.length - 1) {
-          return prev + 1;
-        }
-        return prev;
-      });
-    }, 1800);
-
     try {
-      const response = await importCsvFile(file);
+      const parseResult = await new Promise<Papa.ParseResult<any>>((resolve, reject) => {
+        Papa.parse(file, {
+          header: true,
+          skipEmptyLines: true,
+          complete: resolve,
+          error: reject
+        });
+      });
 
-      clearInterval(stageInterval);
-
-      if (!response.success || !response.data) {
-        throw new Error(response.error ?? "Failed to import CSV file");
+      const allRows = parseResult.data;
+      const CHUNK_SIZE = 100;
+      const chunks = [];
+      
+      for (let i = 0; i < allRows.length; i += CHUNK_SIZE) {
+        chunks.push(allRows.slice(i, i + CHUNK_SIZE));
       }
 
-      const stats = response.data;
+      if (chunks.length === 0) {
+        throw new Error("CSV file is empty or has no valid rows.");
+      }
+
+      const aggregatedStats = {
+        totalImported: 0,
+        totalSkipped: 0,
+        totalRows: 0,
+        durationMs: 0,
+        importedRecords: [] as any[],
+        skippedRecords: [] as any[],
+      };
+
+      for (let i = 0; i < chunks.length; i++) {
+        // Visual progress feedback
+        setCurrentStageIndex(Math.min(3, Math.floor((i / chunks.length) * 4)));
+        
+        const chunkCsv = Papa.unparse(chunks[i]);
+        const chunkFile = new File([chunkCsv], `chunk-${i}-${file.name}`, { type: "text/csv" });
+        
+        const response = await importCsvFile(chunkFile);
+
+        if (!response.success || !response.data) {
+          throw new Error(response.error ?? `Failed to import chunk ${i + 1}`);
+        }
+
+        const stats = response.data;
+        aggregatedStats.totalImported += stats.totalImported;
+        aggregatedStats.totalSkipped += stats.totalSkipped;
+        aggregatedStats.totalRows += stats.totalRows;
+        aggregatedStats.durationMs += stats.durationMs;
+        aggregatedStats.importedRecords.push(...(stats.importedRecords || []));
+        aggregatedStats.skippedRecords.push(...(stats.skippedRecords || []));
+      }
       
-      setImportStats({
-        totalImported: stats.totalImported,
-        totalSkipped: stats.totalSkipped,
-        totalRows: stats.totalRows,
-        durationMs: stats.durationMs,
-        importedRecords: stats.importedRecords || [],
-        skippedRecords: stats.skippedRecords || [],
-      });
+      setCurrentStageIndex(4); // Finished
+
+      setImportStats(aggregatedStats);
       
       onImportComplete({
-        totalImported: stats.totalImported,
-        totalSkipped: stats.totalSkipped,
-        totalRows: stats.totalRows,
+        totalImported: aggregatedStats.totalImported,
+        totalSkipped: aggregatedStats.totalSkipped,
+        totalRows: aggregatedStats.totalRows,
       });
     } catch (err) {
-      clearInterval(stageInterval);
       setError(err instanceof Error ? err.message : "An error occurred during file upload.");
     } finally {
       setIsProcessing(false);

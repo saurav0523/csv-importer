@@ -225,12 +225,7 @@ export function ManageLeads({ onImportClick }: ManageLeadsProps) {
         </div>
 
         <div 
-          onClick={() => handleStatusFilterChange("SALE_DONE")}
-          className={`p-6 rounded-[1.5rem] border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-center gap-4 group cursor-pointer active:scale-[0.99] ${
-            statusFilter === "SALE_DONE" 
-              ? "border-rose-400 bg-gradient-to-br from-rose-50/80 via-pink-50/30 to-white shadow-md shadow-rose-100/50" 
-              : "bg-white border-slate-100"
-          }`}
+          className="p-6 rounded-[1.5rem] border shadow-sm transition-all duration-300 flex items-center gap-4 bg-white border-slate-100"
         >
           <div className="h-12 w-12 bg-gradient-to-tr from-rose-500 to-pink-400 text-white rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-md shadow-rose-100">
             <AlertTriangle size={22} />
@@ -250,7 +245,7 @@ export function ManageLeads({ onImportClick }: ManageLeadsProps) {
       <div className="bg-white border border-slate-100 rounded-3xl shadow-sm overflow-hidden flex flex-col flex-1">
         <div className="flex flex-col md:flex-row md:items-center justify-between p-6 border-b border-slate-100 gap-4">
           <div className="flex items-center gap-3">
-            <h3 className="font-bold text-slate-800 text-lg">Your Leads</h3>
+            <h3 className="font-bold text-slate-800 text-lg"> Leads</h3>
             <button
               onClick={onImportClick}
               className="px-4 py-1.5 bg-gradient-to-r from-[#ff7b4b] to-[#ff5d2b] hover:from-[#ff8b5d] hover:to-[#ff6d3d] text-white rounded-full text-[10px] font-bold shadow-md shadow-orange-100 transition-all active:scale-[0.98] inline-flex items-center gap-1"
@@ -327,7 +322,7 @@ export function ManageLeads({ onImportClick }: ManageLeadsProps) {
               <tbody className="divide-y divide-slate-100 text-slate-600">
                 {leads.map((lead, idx) => {
                   return (
-                    <tr key={idx} className="hover:bg-slate-50/70 transition-colors duration-150">
+                    <tr key={idx} className="bg-white hover:bg-slate-50/70 transition-colors duration-150">
                       <td className="px-6 py-4 font-semibold text-slate-800">
                         {lead.name || "—"}
                       </td>

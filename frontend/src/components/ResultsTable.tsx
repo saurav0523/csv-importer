@@ -136,7 +136,7 @@ export function ResultsTable({ imported, skipped }: ResultsTableProps) {
                     {h}
                   </th>
                 ))}
-                <th className="flex w-64 shrink-0 items-center whitespace-nowrap px-4 py-2.5 text-left text-xs font-medium text-rose-400">
+                <th className="flex w-[400px] shrink-0 items-center whitespace-nowrap px-4 py-2.5 text-left text-xs font-medium text-rose-400">
                   Skip reason
                 </th>
               </tr>
@@ -160,11 +160,11 @@ export function ResultsTable({ imported, skipped }: ResultsTableProps) {
                       {item.rowIndex + 1}
                     </td>
                     {skippedHeaders.map((h) => (
-                      <td key={h} className="flex w-40 shrink-0 items-center truncate whitespace-nowrap px-4 text-slate-800 font-medium">
+                      <td key={h} className="flex w-40 shrink-0 items-center truncate whitespace-nowrap px-4 text-slate-800 font-medium" title={String(item.row[h] || "")}>
                         {item.row[h] || <span className="text-slate-300">—</span>}
                       </td>
                     ))}
-                    <td className="flex w-64 shrink-0 items-center truncate whitespace-nowrap px-4 text-rose-600 font-medium">
+                    <td className="flex w-[400px] shrink-0 items-center truncate whitespace-nowrap px-4 text-rose-600 font-medium" title={item.reason}>
                       {item.reason}
                     </td>
                   </tr>

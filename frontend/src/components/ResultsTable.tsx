@@ -77,11 +77,11 @@ export function ResultsTable({ imported, skipped }: ResultsTableProps) {
           <table className="w-full min-w-max border-collapse text-sm">
             <thead className="sticky top-0 z-10 bg-ink-900 text-white block">
               <tr className="flex">
-                <th className="sticky left-0 z-20 flex w-12 shrink-0 items-center border-r border-ink-700 bg-ink-900 px-3 py-2.5 text-left text-xs font-medium text-ink-300">
+                <th className="sticky left-0 z-20 flex w-12 shrink-0 items-center border-r border-slate-700 bg-slate-900 px-3 py-2.5 text-left text-xs font-medium text-slate-300">
                   #
                 </th>
                 {CRM_COLUMNS.map((col) => (
-                  <th key={col.key} className="flex w-44 shrink-0 items-center whitespace-nowrap px-4 py-2.5 text-left text-xs font-medium text-ink-100">
+                  <th key={col.key} className="flex w-44 shrink-0 items-center whitespace-nowrap px-4 py-2.5 text-left text-xs font-medium text-slate-200">
                     {col.label}
                   </th>
                 ))}
@@ -100,20 +100,20 @@ export function ResultsTable({ imported, skipped }: ResultsTableProps) {
                       width: "100%",
                       transform: `translateY(${vRow.start}px)`,
                     }}
-                    className="flex border-b border-ink-50 odd:bg-white even:bg-ink-50/60 hover:bg-brand-50/60"
+                    className="flex border-b border-slate-100 odd:bg-white even:bg-slate-50 hover:bg-slate-100"
                   >
-                    <td className="sticky left-0 z-10 flex w-12 shrink-0 items-center border-r border-ink-100 bg-inherit px-3 text-xs text-ink-300">
+                    <td className="sticky left-0 z-10 flex w-12 shrink-0 items-center border-r border-slate-100 bg-inherit px-3 text-xs text-slate-500">
                       {vRow.index + 1}
                     </td>
                     {CRM_COLUMNS.map((col) => (
                       <td
                         key={col.key}
-                        className="flex w-44 shrink-0 items-center truncate whitespace-nowrap px-4 text-ink-700"
+                        className="flex w-44 shrink-0 items-center truncate whitespace-nowrap px-4 text-slate-800 font-medium"
                       >
                         {col.key === "crm_status" ? (
                           <StatusBadge status={record.crm_status} />
                         ) : (
-                          record[col.key] || <span className="text-ink-300">—</span>
+                          record[col.key] || <span className="text-slate-300">—</span>
                         )}
                       </td>
                     ))}
@@ -128,15 +128,15 @@ export function ResultsTable({ imported, skipped }: ResultsTableProps) {
           <table className="w-full min-w-max border-collapse text-sm">
             <thead className="sticky top-0 z-10 bg-ink-900 text-white block">
               <tr className="flex">
-                <th className="sticky left-0 z-20 flex w-12 shrink-0 items-center border-r border-ink-700 bg-ink-900 px-3 py-2.5 text-left text-xs font-medium text-ink-300">
+                <th className="sticky left-0 z-20 flex w-12 shrink-0 items-center border-r border-slate-700 bg-slate-900 px-3 py-2.5 text-left text-xs font-medium text-slate-300">
                   #
                 </th>
                 {skippedHeaders.map((h) => (
-                  <th key={h} className="flex w-40 shrink-0 items-center whitespace-nowrap px-4 py-2.5 text-left text-xs font-medium text-ink-100">
+                  <th key={h} className="flex w-40 shrink-0 items-center whitespace-nowrap px-4 py-2.5 text-left text-xs font-medium text-slate-200">
                     {h}
                   </th>
                 ))}
-                <th className="flex w-64 shrink-0 items-center whitespace-nowrap px-4 py-2.5 text-left text-xs font-medium text-rose-300">
+                <th className="flex w-64 shrink-0 items-center whitespace-nowrap px-4 py-2.5 text-left text-xs font-medium text-rose-400">
                   Skip reason
                 </th>
               </tr>
@@ -154,17 +154,17 @@ export function ResultsTable({ imported, skipped }: ResultsTableProps) {
                       width: "100%",
                       transform: `translateY(${vRow.start}px)`,
                     }}
-                    className="flex border-b border-ink-50 odd:bg-white even:bg-rose-50/30"
+                    className="flex border-b border-slate-100 odd:bg-white even:bg-rose-50/40 hover:bg-slate-50"
                   >
-                    <td className="sticky left-0 z-10 flex w-12 shrink-0 items-center border-r border-ink-100 bg-inherit px-3 text-xs text-ink-300">
+                    <td className="sticky left-0 z-10 flex w-12 shrink-0 items-center border-r border-slate-100 bg-inherit px-3 text-xs text-slate-500">
                       {item.rowIndex + 1}
                     </td>
                     {skippedHeaders.map((h) => (
-                      <td key={h} className="flex w-40 shrink-0 items-center truncate whitespace-nowrap px-4 text-ink-700">
-                        {item.row[h] || <span className="text-ink-300">—</span>}
+                      <td key={h} className="flex w-40 shrink-0 items-center truncate whitespace-nowrap px-4 text-slate-800 font-medium">
+                        {item.row[h] || <span className="text-slate-300">—</span>}
                       </td>
                     ))}
-                    <td className="flex w-64 shrink-0 items-center truncate whitespace-nowrap px-4 text-rose-600">
+                    <td className="flex w-64 shrink-0 items-center truncate whitespace-nowrap px-4 text-rose-600 font-medium">
                       {item.reason}
                     </td>
                   </tr>

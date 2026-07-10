@@ -50,8 +50,8 @@ export function ResultsTable({ imported, skipped }: ResultsTableProps) {
           <button
             onClick={() => setTab("imported")}
             className={cn(
-              "rounded-full px-4 py-1.5 text-xs font-medium transition-colors",
-              tab === "imported" ? "bg-white text-brand-700 shadow-sm" : "text-ink-500 hover:text-ink-800"
+              "rounded-full px-4 py-1.5 text-xs font-bold transition-colors",
+              tab === "imported" ? "bg-emerald-500 text-white shadow-md" : "text-slate-500 hover:text-slate-800 hover:bg-slate-200/50"
             )}
           >
             Imported ({imported.length})
@@ -59,14 +59,13 @@ export function ResultsTable({ imported, skipped }: ResultsTableProps) {
           <button
             onClick={() => setTab("skipped")}
             className={cn(
-              "rounded-full px-4 py-1.5 text-xs font-medium transition-colors",
-              tab === "skipped" ? "bg-white text-rose-700 shadow-sm" : "text-ink-500 hover:text-ink-800"
+              "rounded-full px-4 py-1.5 text-xs font-bold transition-colors",
+              tab === "skipped" ? "bg-rose-500 text-white shadow-md" : "text-slate-500 hover:text-slate-800 hover:bg-slate-200/50"
             )}
           >
             Skipped ({skipped.length})
           </button>
         </div>
-        <p className="text-xs text-ink-400">Virtualized — smooth even with thousands of rows</p>
       </div>
 
       {rowCount === 0 ? (

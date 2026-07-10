@@ -100,7 +100,7 @@ export function ResultsTable({ imported, skipped }: ResultsTableProps) {
                       width: "100%",
                       transform: `translateY(${vRow.start}px)`,
                     }}
-                    className="flex border-b border-slate-100 odd:bg-white even:bg-slate-50 hover:bg-slate-100"
+                    className="flex border-b border-slate-100 bg-white hover:bg-slate-50"
                   >
                     <td className="sticky left-0 z-10 flex w-12 shrink-0 items-center border-r border-slate-100 bg-inherit px-3 text-xs text-slate-500">
                       {vRow.index + 1}
@@ -154,7 +154,7 @@ export function ResultsTable({ imported, skipped }: ResultsTableProps) {
                       width: "100%",
                       transform: `translateY(${vRow.start}px)`,
                     }}
-                    className="flex border-b border-slate-100 odd:bg-white even:bg-rose-50/40 hover:bg-slate-50"
+                    className="flex border-b border-slate-100 bg-white hover:bg-slate-50"
                   >
                     <td className="sticky left-0 z-10 flex w-12 shrink-0 items-center border-r border-slate-100 bg-inherit px-3 text-xs text-slate-500">
                       {item.rowIndex + 1}

@@ -106,7 +106,7 @@ export function ImportModal({ isOpen, onClose, onImportComplete }: ImportModalPr
       });
 
       const allRows = parseResult.data;
-      const CHUNK_SIZE = 100;
+      const CHUNK_SIZE = 20;
       const chunks = [];
       
       for (let i = 0; i < allRows.length; i += CHUNK_SIZE) {

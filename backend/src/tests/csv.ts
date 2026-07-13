@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseCsv, CsvParseError } from "./csv.service";
+import { parseCsv, CsvParseError } from "../services/csv";
 
 describe("parseCsv", () => {
   it("parses a well-formed CSV into row objects keyed by header", () => {

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { pool } from "../config/db";
 import { logger } from "../utils/logger";
-import { CRM_STATUS_VALUES } from "../constants/crm.constants";
+import { CRM_STATUS_VALUES } from "../constants/crm";
 
 export async function getLeads(req: Request, res: Response, next: NextFunction) {
   try {

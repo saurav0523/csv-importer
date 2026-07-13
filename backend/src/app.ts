@@ -3,8 +3,8 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import { env } from "./config/env";
-import apiRoutes from "./routes/import.routes";
-import { errorHandler, notFoundHandler } from "./middlewares/error.middleware";
+import apiRoutes from "./routes/import";
+import { errorHandler, notFoundHandler } from "./middlewares/error";
 
 export function createApp() {
   const app = express();

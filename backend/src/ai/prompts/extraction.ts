@@ -1,5 +1,5 @@
-import { CRM_STATUS_VALUES, DATA_SOURCE_VALUES } from "../../constants/crm.constants";
-import { RawCsvRow } from "../../types/crm.types";
+import { CRM_STATUS_VALUES, DATA_SOURCE_VALUES } from "../../constants/crm";
+import { RawCsvRow } from "../../types/crm";
 
 export const EXTRACTION_SYSTEM_PROMPT = `You are a meticulous data-mapping engine used inside a production CRM import pipeline for a real-estate/sales SaaS called GrowEasy. Your ONLY job is to map arbitrary, messy CSV rows (which may come from Facebook Lead Ads, Google Ads, Excel exports, other CRMs, or hand-built spreadsheets) onto a fixed CRM schema.
 

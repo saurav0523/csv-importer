@@ -1,8 +1,8 @@
 import { env } from "../config/env";
 import { logger } from "../utils/logger";
 import { chunkArray, runWithConcurrency } from "../utils/batch";
-import { extractBatch } from "./ai.service";
-import { CrmRecord, ImportResult, RawCsvRow, SkippedRecord } from "../types/crm.types";
+import { extractBatch } from "./ai";
+import { CrmRecord, ImportResult, RawCsvRow, SkippedRecord } from "../types/crm";
 import { pool } from "../config/db";
 
 function hasContactInfo(record: CrmRecord): boolean {

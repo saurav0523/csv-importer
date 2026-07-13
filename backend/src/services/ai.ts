@@ -1,10 +1,10 @@
-import { getAiProvider } from "../ai/providers/provider.factory";
-import { EXTRACTION_SYSTEM_PROMPT, buildExtractionUserPrompt } from "../ai/prompts/extraction.prompt";
+import { getAiProvider } from "../ai/providers/factory";
+import { EXTRACTION_SYSTEM_PROMPT, buildExtractionUserPrompt } from "../ai/prompts/extraction";
 import { aiBatchResponseSchema } from "../utils/validators";
 import { withRetry } from "../utils/retry";
 import { env } from "../config/env";
 import { logger } from "../utils/logger";
-import { CrmRecord, RawCsvRow } from "../types/crm.types";
+import { CrmRecord, RawCsvRow } from "../types/crm";
 
 export class AiExtractionError extends Error {}
 

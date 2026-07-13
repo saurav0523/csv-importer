@@ -44,14 +44,14 @@ export function ResultsTable({ imported, skipped }: ResultsTableProps) {
   }, [skipped]);
 
   return (
-    <div className="overflow-hidden rounded-xl2 border border-ink-100 bg-white shadow-card">
-      <div className="flex items-center justify-between border-b border-ink-100 px-5 py-3">
-        <div className="flex gap-1 rounded-full bg-ink-100 p-1">
+    <div className="overflow-hidden rounded-xl2 border border-ink-100 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-card">
+      <div className="flex items-center justify-between border-b border-ink-100 dark:border-slate-700 px-5 py-3">
+        <div className="flex gap-1 rounded-full bg-ink-100 dark:bg-slate-900 p-1">
           <button
             onClick={() => setTab("imported")}
             className={cn(
               "rounded-full px-4 py-1.5 text-xs font-bold transition-colors",
-              tab === "imported" ? "bg-emerald-500 text-white shadow-md" : "text-slate-500 hover:text-slate-800 hover:bg-slate-200/50"
+              tab === "imported" ? "bg-emerald-500 text-white shadow-md" : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
             )}
           >
             Imported ({imported.length})
@@ -60,7 +60,7 @@ export function ResultsTable({ imported, skipped }: ResultsTableProps) {
             onClick={() => setTab("skipped")}
             className={cn(
               "rounded-full px-4 py-1.5 text-xs font-bold transition-colors",
-              tab === "skipped" ? "bg-rose-500 text-white shadow-md" : "text-slate-500 hover:text-slate-800 hover:bg-slate-200/50"
+              tab === "skipped" ? "bg-rose-500 text-white shadow-md" : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
             )}
           >
             Skipped ({skipped.length})
@@ -100,20 +100,20 @@ export function ResultsTable({ imported, skipped }: ResultsTableProps) {
                       width: "100%",
                       transform: `translateY(${vRow.start}px)`,
                     }}
-                    className="flex border-b border-slate-100 bg-white hover:bg-slate-50"
+                    className="flex border-b border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700/50"
                   >
-                    <td className="sticky left-0 z-10 flex w-12 shrink-0 items-center border-r border-slate-100 bg-inherit px-3 text-xs text-slate-500">
+                    <td className="sticky left-0 z-10 flex w-12 shrink-0 items-center border-r border-slate-100 dark:border-slate-700 bg-inherit px-3 text-xs text-slate-500 dark:text-slate-400">
                       {vRow.index + 1}
                     </td>
                     {CRM_COLUMNS.map((col) => (
                       <td
                         key={col.key}
-                        className="flex w-44 shrink-0 items-center truncate whitespace-nowrap px-4 text-slate-800 font-medium"
+                        className="flex w-44 shrink-0 items-center truncate whitespace-nowrap px-4 text-slate-800 dark:text-slate-200 font-medium"
                       >
                         {col.key === "crm_status" ? (
                           <StatusBadge status={record.crm_status} />
                         ) : (
-                          record[col.key] || <span className="text-slate-300">—</span>
+                          record[col.key] || <span className="text-slate-300 dark:text-slate-600">—</span>
                         )}
                       </td>
                     ))}
@@ -154,14 +154,14 @@ export function ResultsTable({ imported, skipped }: ResultsTableProps) {
                       width: "100%",
                       transform: `translateY(${vRow.start}px)`,
                     }}
-                    className="flex border-b border-slate-100 bg-white hover:bg-slate-50"
+                    className="flex border-b border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700/50"
                   >
-                    <td className="sticky left-0 z-10 flex w-12 shrink-0 items-center border-r border-slate-100 bg-inherit px-3 text-xs text-slate-500">
+                    <td className="sticky left-0 z-10 flex w-12 shrink-0 items-center border-r border-slate-100 dark:border-slate-700 bg-inherit px-3 text-xs text-slate-500 dark:text-slate-400">
                       {vRow.index + 1}
                     </td>
                     {skippedHeaders.map((h) => (
-                      <td key={h} className="flex w-40 shrink-0 items-center truncate whitespace-nowrap px-4 text-slate-800 font-medium" title={String(item.row[h] || "")}>
-                        {item.row[h] || <span className="text-slate-300">—</span>}
+                      <td key={h} className="flex w-40 shrink-0 items-center truncate whitespace-nowrap px-4 text-slate-800 dark:text-slate-200 font-medium" title={String(item.row[h] || "")}>
+                        {item.row[h] || <span className="text-slate-300 dark:text-slate-600">—</span>}
                       </td>
                     ))}
                     <td className="flex w-[400px] shrink-0 items-center truncate whitespace-nowrap px-4 text-rose-600 font-medium" title={item.reason}>

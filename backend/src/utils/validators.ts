@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { CRM_STATUS_VALUES, DATA_SOURCE_VALUES } from "../constants/crm.constants";
+import { CRM_STATUS_VALUES, DATA_SOURCE_VALUES } from "../constants/crm";
 
 const nullableString = z.preprocess((val) => {
   if (val === undefined) return null;

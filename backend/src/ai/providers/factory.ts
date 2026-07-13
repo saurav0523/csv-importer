@@ -1,5 +1,5 @@
-import { AiProvider } from "./provider.interface";
-import { OpenRouterProvider } from "./openrouter.provider";
+import { AiProvider } from "./interface";
+import { OpenRouterProvider } from "./openrouter";
 
 let cachedProvider: AiProvider | null = null;
 

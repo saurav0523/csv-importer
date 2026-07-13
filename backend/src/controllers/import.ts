@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import { parseCsv, CsvParseError } from "../services/csv.service";
-import { mapCsvRowsToCrm } from "../services/mapping.service";
-import { AppError } from "../middlewares/error.middleware";
+import { parseCsv, CsvParseError } from "../services/csv";
+import { mapCsvRowsToCrm } from "../services/mapping";
+import { AppError } from "../middlewares/error";
 import { logger } from "../utils/logger";
 
 

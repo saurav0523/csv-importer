@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { crmRecordSchema, aiBatchResponseSchema } from "./validators";
+import { crmRecordSchema, aiBatchResponseSchema } from "../utils/validators";
 
 describe("crmRecordSchema", () => {
   it("normalizes empty strings and AI noise words to null", () => {

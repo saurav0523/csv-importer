@@ -7,7 +7,7 @@ import { parseCsvForPreview, CsvPreview } from "../lib/csvParser";
 import Papa from "papaparse";
 import { Button } from "./ui/Button";
 import { ResultsTable } from "./ResultsTable";
-import { importCsvFile } from "../api/apiServices";
+import { importCsvFile } from "../lib/api";
 
 interface ImportModalProps {
   isOpen: boolean;

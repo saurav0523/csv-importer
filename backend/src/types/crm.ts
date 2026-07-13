@@ -1,4 +1,4 @@
-import { CRM_STATUS_VALUES, DATA_SOURCE_VALUES } from "../constants/crm.constants";
+import { CRM_STATUS_VALUES, DATA_SOURCE_VALUES } from "../constants/crm";
 
 export type CrmStatus = (typeof CRM_STATUS_VALUES)[number];
 export type DataSource = (typeof DATA_SOURCE_VALUES)[number];

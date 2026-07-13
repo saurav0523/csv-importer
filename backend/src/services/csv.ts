@@ -1,6 +1,6 @@
 import { parse } from "csv-parse/sync";
 import { env } from "../config/env";
-import { RawCsvRow } from "../types/crm.types";
+import { RawCsvRow } from "../types/crm";
 
 export class CsvParseError extends Error {}
 

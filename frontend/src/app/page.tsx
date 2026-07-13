@@ -52,13 +52,13 @@ export default function HomePage() {
           <div className="flex-1 overflow-y-auto font-sans">
             <div className="p-8 space-y-6">
             <div>
-              <h2 className="text-2xl font-bold text-slate-800 tracking-tight">Lead Sources</h2>
+              <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">Lead Sources</h2>
               <p className="text-sm text-slate-400 mt-1">Connect, manage, and control all your lead channels from one dashboard.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-              <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-6 flex flex-col justify-between h-56 hover:shadow-md transition-shadow">
+              <div className="bg-white dark:bg-ink-900 dark:text-white rounded-3xl border border-slate-100 dark:border-ink-800 shadow-sm p-6 flex flex-col justify-between h-56 hover:shadow-md transition-shadow">
                 <div className="flex justify-between items-start">
                   <div className="h-12 w-12 rounded-2xl bg-orange-50 text-[#ff7b4b] flex items-center justify-center shadow-inner">
                     <FileSpreadsheet size={22} />
@@ -69,7 +69,7 @@ export default function HomePage() {
                 </div>
                 
                 <div className="mt-4">
-                  <h4 className="font-bold text-slate-800 text-base">Bulk CSV Import</h4>
+                  <h4 className="font-bold text-slate-800 dark:text-slate-100 text-base">Bulk CSV Import</h4>
                   <p className="text-xs text-slate-400 mt-1">Upload files to map columns and import leads with AI.</p>
                 </div>
 
@@ -83,46 +83,45 @@ export default function HomePage() {
                 </div>
               </div>
 
-
-              <div className="bg-white rounded-3xl border border-[#e0f2fe]/40 bg-slate-50/20 shadow-sm p-6 flex flex-col justify-between h-56 opacity-85">
+              <div className="bg-slate-50 dark:bg-ink-900/50 dark:text-white rounded-3xl border border-blue-100/50 dark:border-ink-800 shadow-sm p-6 flex flex-col justify-between h-56 opacity-85">
                 <div className="flex justify-between items-start">
                   <div className="h-12 w-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
                     <Layers size={22} />
                   </div>
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-500">
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-ink-800 text-slate-500">
                     Not Connected
                   </span>
                 </div>
                 
                 <div className="mt-4">
-                  <h4 className="font-bold text-slate-800 text-base">Facebook Lead Ads</h4>
+                  <h4 className="font-bold text-slate-800 dark:text-slate-100 text-base">Facebook Lead Ads</h4>
                   <p className="text-xs text-slate-400 mt-1">Directly sync leads from your Facebook advertising campaigns.</p>
                 </div>
 
                 <div className="mt-5 flex justify-end">
-                  <button className="px-5 py-2.5 border border-slate-200 hover:border-blue-400 text-slate-500 hover:text-blue-600 rounded-full text-xs font-semibold bg-white transition-all shadow-sm">
+                  <button className="px-5 py-2.5 border border-slate-200 dark:border-ink-700 hover:border-blue-400 text-slate-500 hover:text-blue-600 rounded-full text-xs font-semibold bg-white dark:bg-ink-900 dark:text-white transition-all shadow-sm">
                     Connect Channel
                   </button>
                 </div>
               </div>
 
-              <div className="bg-white rounded-3xl border border-[#fef3c7]/40 bg-slate-50/20 shadow-sm p-6 flex flex-col justify-between h-56 opacity-85">
+              <div className="bg-slate-50 dark:bg-ink-900/50 dark:text-white rounded-3xl border border-amber-100/50 dark:border-ink-800 shadow-sm p-6 flex flex-col justify-between h-56 opacity-85">
                 <div className="flex justify-between items-start">
                   <div className="h-12 w-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center">
                     <Layers size={22} />
                   </div>
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-500">
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-ink-800 text-slate-500">
                     Not Connected
                   </span>
                 </div>
                 
                 <div className="mt-4">
-                  <h4 className="font-bold text-slate-800 text-base">Google Ads Form</h4>
+                  <h4 className="font-bold text-slate-800 dark:text-slate-100 text-base">Google Ads Form</h4>
                   <p className="text-xs text-slate-400 mt-1">Connect your Google Search/Display ad extensions.</p>
                 </div>
 
                 <div className="mt-5 flex justify-end">
-                  <button className="px-5 py-2.5 border border-slate-200 hover:border-amber-400 text-slate-500 hover:text-amber-600 rounded-full text-xs font-semibold bg-white transition-all shadow-sm">
+                  <button className="px-5 py-2.5 border border-slate-200 dark:border-ink-700 hover:border-amber-400 text-slate-500 hover:text-amber-600 rounded-full text-xs font-semibold bg-white dark:bg-ink-900 dark:text-white transition-all shadow-sm">
                     Connect Channel
                   </button>
                 </div>
@@ -136,7 +135,7 @@ export default function HomePage() {
         return (
           <div className="flex-grow flex flex-col items-center justify-center p-8 text-center text-slate-400 font-sans">
             <HelpCircle size={48} className="opacity-30 mb-3" />
-            <h3 className="text-base font-bold text-slate-700">View In Progress</h3>
+            <h3 className="text-base font-bold text-slate-700 dark:text-slate-200">View In Progress</h3>
             <p className="text-xs text-slate-400 mt-1 max-w-xs">
               This dashboard view is currently under development. Switch to <strong>Manage Leads</strong> or <strong>Lead Sources</strong> to test lead processing.
             </p>
@@ -154,7 +153,7 @@ export default function HomePage() {
         <div className="absolute top-7 right-8 z-50">
           <button
             onClick={toggleDarkMode}
-            className="p-2.5 rounded-full border border-slate-200/80 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800 backdrop-blur-md text-slate-600 dark:text-amber-400 hover:text-[#ff7b4b] dark:hover:text-amber-300 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm hover:shadow-md hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center group"
+            className="p-2.5 rounded-full border border-slate-200 dark:border-ink-700/80 bg-white dark:bg-ink-900 dark:text-white/70 dark:bg-slate-900/70 dark:border-slate-800 backdrop-blur-md text-slate-600 dark:text-slate-300 dark:text-amber-400 hover:text-[#ff7b4b] dark:hover:text-amber-300 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm hover:shadow-md hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center group"
             aria-label="Toggle theme"
             title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
           >

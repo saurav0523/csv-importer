@@ -19,8 +19,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           variant === "primary" &&
             "bg-brand-600 text-white shadow-card hover:bg-brand-700 active:scale-[0.98]",
           variant === "secondary" &&
-            "border border-ink-300 bg-white text-ink-800 hover:border-brand-500 hover:text-brand-700",
-          variant === "ghost" && "text-ink-500 hover:bg-ink-100 hover:text-ink-800",
+            "border border-ink-300 dark:border-ink-700 bg-white dark:bg-ink-900 text-ink-800 dark:text-ink-100 hover:border-brand-500 dark:hover:border-brand-400 hover:text-brand-700 dark:hover:text-brand-300",
+          variant === "ghost" && "text-ink-500 dark:text-ink-400 hover:bg-ink-100 dark:hover:bg-ink-800 hover:text-ink-800 dark:hover:text-ink-100",
           className
         )}
         {...props}

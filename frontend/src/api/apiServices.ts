@@ -1,6 +1,6 @@
-import axiosInstance from "./axiosInstance";
+import axiosInstance from "../lib/api";
 import ENDPOINTS from "../utils/endpoints";
-import { createSafeApiCall, ApiResponse } from "./apiUtils";
+import { createSafeApiCall, ApiResponse } from "../lib/apiUtils";
 import { CrmRecord, ImportResult } from "../lib/types";
 
 export interface LeadsResponseData {

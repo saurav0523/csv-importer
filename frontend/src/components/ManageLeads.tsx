@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState, useCallback } from "react";
 import { Search, RotateCcw, Loader2, Users, CheckCircle, AlertTriangle, TrendingUp, X } from "lucide-react";
 import { CrmRecord } from "../lib/types";

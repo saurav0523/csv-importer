@@ -138,7 +138,6 @@ export function ImportModal({ isOpen, onClose, onImportComplete }: ImportModalPr
       };
 
       for (let i = 0; i < chunks.length; i++) {
-        // Visual progress feedback
         setCurrentStageIndex(Math.min(3, Math.floor((i / chunks.length) * 4)));
         
         const chunkCsv = Papa.unparse(chunks[i]);
@@ -159,7 +158,7 @@ export function ImportModal({ isOpen, onClose, onImportComplete }: ImportModalPr
         aggregatedStats.skippedRecords.push(...(stats.skippedRecords || []));
       }
       
-      setCurrentStageIndex(4); // Finished
+      setCurrentStageIndex(4); 
 
       setImportStats(aggregatedStats);
       
